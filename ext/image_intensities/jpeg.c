@@ -9,7 +9,7 @@
 
 raster_data read_jpeg_file(const char *file_name)
 {
-    raster_data data = {};
+    raster_data data = { 0 };
     tjhandle decompressor = NULL;
     void *input = NULL;
     off_t size = 0;

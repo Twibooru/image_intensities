@@ -10,7 +10,7 @@
 
 quadrant_sums rgb_sums(rgb_pixel *restrict pixels, uint32_t width, uint32_t height)
 {
-    quadrant_sums sums = {{}};
+    quadrant_sums sums = { 0 };
 
     for (uint32_t i = 0; i < height; ++i) {
         for (uint32_t j = 0; j < width; ++j) {

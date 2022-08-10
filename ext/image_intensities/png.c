@@ -6,17 +6,17 @@
 
 #include "definitions.h"
 
-static void user_warning_fn(png_structp png_ptr, png_const_charp warning_msg)
-{
-    // discard
+static void user_warning_fn(png_structp png_ptr, png_const_charp warning_msg) {
+    /* discard warnings */
+    (void) png_ptr;
+    (void) warning_msg;
 }
 
-raster_data read_png_file(const char *file_name)
-{
+raster_data read_png_file(const char *file_name) {
     FILE *fp = NULL;
     png_bytep *row_pointers = NULL;
     int error = 0;
-    raster_data data = {};
+    raster_data data = { 0 };
 
     fp = fopen(file_name, "rb");
     if (fp == NULL) {
@@ -58,7 +58,7 @@ raster_data read_png_file(const char *file_name)
     data.pixels = malloc(png_get_rowbytes(png_ptr, info_ptr) * data.height);
 
     row_pointers = png_malloc(png_ptr, data.height * sizeof(png_bytep));
-    for (size_t i = 0; i < data.height; ++i)
+    for (int i = 0; i < data.height; ++i)
         row_pointers[i] = (png_bytep) &data.pixels[data.width * i];
 
     png_read_image(png_ptr, row_pointers);

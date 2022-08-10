@@ -25,8 +25,8 @@ typedef struct quadrant_sums {
 } quadrant_sums;
 
 typedef struct raster_data {
-    uint32_t width;
-    uint32_t height;
+    int32_t width;
+    int32_t height;
     rgb_pixel *pixels;
     int error;
 } raster_data;
