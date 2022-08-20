@@ -1,28 +1,21 @@
 # frozen_string_literal: true
 
-require 'magic'
-
 module ImageIntensities
-  def self.file(path)
-    mime = magic.file(path)
-    case mime
-    when 'image/png'
+  def self.file(path, type:)
+    case type
+    when :png
       ins = Native.png_intensities(path)
       raise 'Processing error' if ins[:error] != 0
 
       { nw: ins[:nw], ne: ins[:ne], sw: ins[:sw], se: ins[:se] }
-    when 'image/jpeg'
+    when :jpeg
       ins = Native.jpeg_intensities(path)
       raise 'Processing error' if ins[:error] != 0
 
       { nw: ins[:nw], ne: ins[:ne], sw: ins[:sw], se: ins[:se] }
     else
-      raise "Unsupported file type `#{mime}'"
+      raise "Unsupported file type `#{tymimepe}'"
     end
-  end
-
-  def self.magic
-    @magic ||= Magic.new(Magic::MIME_TYPE)
   end
 end
 

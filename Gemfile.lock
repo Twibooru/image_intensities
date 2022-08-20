@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    image_intensities (2.0.0)
+      ffi
+      rake
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ffi (1.14.2)
+    rake (13.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  image_intensities!
+
+BUNDLED WITH
+   1.17.2

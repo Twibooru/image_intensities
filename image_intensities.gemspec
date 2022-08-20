@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name          = 'image_intensities'
   s.version       = ImageIntensities::VERSION
   s.summary       = ''
-  s.author        = 'Liam P. White'
+  s.authors       = ['Liam P. White', 'AppleDash']
   s.files         = `git ls-files`.split("\n")
   s.license       = 'BSD'
   s.extensions    = %w[ext/Rakefile]
@@ -12,6 +12,4 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'ffi'
   s.add_dependency 'rake'
-  s.add_dependency 'rb-libmagic'
-
 end
